@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FraudShield — Intelligent fraud detection for modern fintech">
+  <title>FraudShield</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="home">
+
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Main navigation">
+      <div class="sidebar__brand">
+        <img src="assets/icons/shield.svg" alt="" class="sidebar__logo" width="32" height="32">
+        <span class="sidebar__title">FraudShield</span>
+      </div>
+
+      <nav class="sidebar__nav" aria-label="Sidebar">
+        <div data-nav-render></div>
+      </nav>
+
+      <div class="sidebar__footer">
+        <div data-user-render></div>
+      </div>
+    </aside>
+
+    <!-- Mobile overlay -->
+    <div class="sidebar-overlay" aria-hidden="true"></div>
+
+    <!-- Main area -->
+    <div class="app-main">
+
+      <!-- Header -->
+      <header class="header">
+        <div class="header__left">
+          <button class="header__menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar-nav">
+            <img src="assets/icons/menu.svg" alt="" width="22" height="22">
+          </button>
+          <h1 class="header__page-title">Design System</h1>
+        </div>
+
+        <div class="header__right">
+          <div class="header__search">
+            <img src="assets/icons/search.svg" alt="" class="header__search-icon" width="16" height="16">
+            <input type="search" class="header__search-input" placeholder="Search transactions, alerts…" aria-label="Search">
+          </div>
+
+          <button class="header__icon-btn header__icon-btn--has-badge" type="button" aria-label="Notifications">
+            <img src="assets/icons/bell.svg" alt="" width="20" height="20">
+            <span class="header__badge-dot" aria-hidden="true"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <main class="content">
+
+        <div class="content__header">
+          <h2 class="content__title">Application Shell</h2>
+          <p class="content__subtitle">
+            Shared layout and components for all FraudShield pages. Individual screens will be built on top of this foundation.
+          </p>
+        </div>
+
+        <!-- Component preview (not a dashboard) -->
+        <div class="stack stack--lg">
+
+          <!-- Badges -->
+          <section class="card">
+            <div class="card__header">
+              <div>
+                <h3 class="card__title">Badges</h3>
+                <p class="card__subtitle">Risk levels and status indicators</p>
+              </div>
+            </div>
+            <div class="btn-group">
+              <span class="badge badge--safe"><span class="badge__dot"></span> Low Risk</span>
+              <span class="badge badge--warning"><span class="badge__dot"></span> Medium Risk</span>
+              <span class="badge badge--high-risk"><span class="badge__dot"></span> High Risk</span>
+              <span class="badge badge--accent">Review</span>
+              <span class="badge badge--neutral">Pending</span>
+            </div>
+          </section>
+
+          <!-- Buttons -->
+          <section class="card">
+            <div class="card__header">
+              <div>
+                <h3 class="card__title">Buttons</h3>
+                <p class="card__subtitle">Primary actions and secondary controls</p>
+              </div>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn--primary">Primary Action</button>
+              <button type="button" class="btn btn--secondary">Secondary</button>
+              <button type="button" class="btn btn--ghost">Ghost</button>
+              <button type="button" class="btn btn--danger">Block Transaction</button>
+            </div>
+          </section>
+
+          <!-- Alerts -->
+          <section class="card">
+            <div class="card__header">
+              <div>
+                <h3 class="card__title">Alert Banners</h3>
+                <p class="card__subtitle">System and fraud notifications</p>
+              </div>
+            </div>
+            <div class="stack">
+              <div class="alert alert--info">
+                <div class="alert__content">
+                  <strong>Design system ready</strong>
+                  Shared CSS and JS foundation is in place for upcoming pages.
+                </div>
+              </div>
+              <div class="alert alert--danger">
+                <div class="alert__content">
+                  <strong>High-risk transaction detected</strong>
+                  Unusual velocity pattern flagged for review.
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Form -->
+          <section class="card">
+            <div class="card__header">
+              <div>
+                <h3 class="card__title">Form Elements</h3>
+                <p class="card__subtitle">Inputs, selects, and validation states</p>
+              </div>
+            </div>
+            <form class="stack" onsubmit="return false">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label form-label--required" for="merchant">Merchant</label>
+                  <input type="text" id="merchant" class="form-input" placeholder="Enter merchant name">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="risk-level">Risk Level</label>
+                  <select id="risk-level" class="form-select">
+                    <option value="">Select level</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="notes">Notes</label>
+                <textarea id="notes" class="form-textarea" placeholder="Add investigation notes…"></textarea>
+                <p class="form-hint">Visible to all analysts on this case.</p>
+              </div>
+              <div class="btn-group">
+                <button type="submit" class="btn btn--primary">Save</button>
+                <button type="button" class="btn btn--secondary">Cancel</button>
+              </div>
+            </form>
+          </section>
+
+          <!-- Table -->
+          <section class="card card--flat" style="padding: 0; overflow: hidden;">
+            <div class="card__header" style="padding: var(--space-6); margin-bottom: 0;">
+              <div>
+                <h3 class="card__title">Data Table</h3>
+                <p class="card__subtitle">Sample rows from mock data</p>
+              </div>
+            </div>
+            <div class="table-wrapper" style="border: none; border-radius: 0;">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Transaction</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Risk</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="preview-table-body">
+                  <!-- Populated by inline script below -->
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/mock-data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var tbody = document.getElementById("preview-table-body");
+      if (!tbody || !window.FraudShieldMockData) return;
+
+      var rows = FraudShieldMockData.transactions.slice(0, 3).map(function (txn) {
+        return (
+          "<tr>" +
+            "<td>" + txn.id + "<span class=\"table__cell-secondary\">" + txn.merchant + "</span></td>" +
+            "<td>" + txn.customer + "</td>" +
+            "<td>" + FraudShieldUtils.formatCurrency(txn.amount, txn.currency) + "</td>" +
+            "<td><span class=\"badge " + FraudShieldUtils.getRiskBadgeClass(txn.riskLevel) + "\">" +
+              FraudShieldUtils.getRiskLabel(txn.riskLevel) + "</span></td>" +
+            "<td><span class=\"badge " + FraudShieldUtils.getStatusBadgeClass(txn.status) + "\">" +
+              FraudShieldUtils.capitalize(txn.status) + "</span></td>" +
+          "</tr>"
+        );
+      });
+
+      tbody.innerHTML = rows.join("");
+    })();
+  </script>
+</body>
+</html>
