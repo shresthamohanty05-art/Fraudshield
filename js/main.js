@@ -8,15 +8,76 @@
   const ICONS = {
     shield: "assets/icons/shield.svg",
     dashboard: "assets/icons/dashboard.svg",
+    "new-transaction": "assets/icons/new-transaction.svg",
     transactions: "assets/icons/transactions.svg",
-    alerts: "assets/icons/alerts.svg",
-    analytics: "assets/icons/analytics.svg",
-    reports: "assets/icons/reports.svg",
+    "risk-analysis": "assets/icons/analytics.svg",
+    "voice-shield": "assets/icons/voice-shield.svg",
+    "device-security": "assets/icons/device-security.svg",
+    "security-alerts": "assets/icons/alerts.svg",
+    "bank-review": "assets/icons/bank-review.svg",
     settings: "assets/icons/settings.svg",
-    search: "assets/icons/search.svg",
+    help: "assets/icons/help.svg",
+    logout: "assets/icons/logout.svg",
     bell: "assets/icons/bell.svg",
     menu: "assets/icons/menu.svg",
     close: "assets/icons/close.svg",
+  };
+
+  /** Shell navigation — source of truth for sidebar links */
+  const SHELL_NAVIGATION = [
+    {
+      section: "Overview",
+      items: [
+        { id: "dashboard", label: "Dashboard", href: "pages/dashboard.html", icon: "dashboard" },
+        { id: "new-transaction", label: "New Transaction", href: "pages/new-transaction.html", icon: "new-transaction" },
+        { id: "transactions", label: "Transactions", href: "pages/transactions.html", icon: "transactions" },
+      ],
+    },
+    {
+      section: "Analysis",
+      items: [
+        { id: "risk-analysis", label: "Risk Analysis", href: "pages/risk-analysis.html", icon: "risk-analysis" },
+        { id: "voice-shield", label: "Voice Shield", href: "pages/voice-shield.html", icon: "voice-shield" },
+        { id: "device-security", label: "Device Security", href: "pages/device-security.html", icon: "device-security" },
+      ],
+    },
+    {
+      section: "Security",
+      items: [
+        { id: "security-alerts", label: "Security Alerts", href: "pages/security-alerts.html", icon: "security-alerts", badge: 12 },
+        { id: "bank-review", label: "Bank Review", href: "pages/bank-review.html", icon: "bank-review" },
+      ],
+    },
+    {
+      section: "Account",
+      items: [
+        { id: "settings", label: "Settings", href: "pages/settings.html", icon: "settings" },
+        { id: "help", label: "Help & Support", href: "pages/help.html", icon: "help" },
+      ],
+    },
+  ];
+
+  const LOGOUT_ITEM = {
+    id: "logout",
+    label: "Logout",
+    href: "pages/login.html",
+    icon: "logout",
+    isLogout: true,
+  };
+
+  const PAGE_TITLE_MAP = {
+    dashboard: "Dashboard",
+    "new-transaction": "New Transaction",
+    transactions: "Transactions",
+    "risk-analysis": "Risk Analysis",
+    "voice-shield": "Voice Shield",
+    "device-security": "Device Security",
+    "security-alerts": "Security Alerts",
+    "bank-review": "Bank Review",
+    settings: "Settings",
+    help: "Help & Support",
+    logout: "Logout",
+    home: "Dashboard",
   };
 
   /**
@@ -30,6 +91,20 @@
   }
 
   /**
+   * Resolve page href — index.html at root maps to dashboard page.
+   * @param {string} href
+   * @returns {string}
+   */
+  function resolveHref(href) {
+    const resolved = resolvePath(href);
+    const atRoot = !window.location.pathname.includes("/pages/");
+    if (atRoot && href === "pages/dashboard.html") {
+      return "index.html";
+    }
+    return resolved;
+  }
+
+  /**
    * Get the current page identifier from body data attribute or URL.
    * @returns {string}
    */
@@ -39,15 +114,32 @@
 
     const filename = window.location.pathname.split("/").pop() || "index.html";
     const map = {
-      "index.html": "home",
+      "index.html": "dashboard",
       "dashboard.html": "dashboard",
+      "new-transaction.html": "new-transaction",
       "transactions.html": "transactions",
-      "alerts.html": "alerts",
-      "analytics.html": "analytics",
-      "reports.html": "reports",
+      "risk-analysis.html": "risk-analysis",
+      "voice-shield.html": "voice-shield",
+      "device-security.html": "device-security",
+      "security-alerts.html": "security-alerts",
+      "bank-review.html": "bank-review",
       "settings.html": "settings",
+      "help.html": "help",
+      "login.html": "logout",
     };
     return map[filename] || "";
+  }
+
+  /**
+   * Get display title for the current page.
+   * @returns {string}
+   */
+  function getPageTitle() {
+    const fromBody = document.body.dataset.pageTitle;
+    if (fromBody) return fromBody;
+
+    const pageId = getCurrentPageId();
+    return PAGE_TITLE_MAP[pageId] || "FraudShield";
   }
 
   /**
@@ -87,12 +179,11 @@
     closeBtn?.addEventListener("click", closeSidebar);
     overlay?.addEventListener("click", closeSidebar);
 
-    sidebar.querySelectorAll(".sidebar__link").forEach((link) => {
-      link.addEventListener("click", () => {
-        if (window.innerWidth <= 768) {
-          closeSidebar();
-        }
-      });
+    sidebar.addEventListener("click", (e) => {
+      const link = e.target.closest(".sidebar__link");
+      if (link && window.innerWidth <= 768) {
+        closeSidebar();
+      }
     });
 
     window.addEventListener("resize", () => {
@@ -122,60 +213,91 @@
   }
 
   /**
-   * Build sidebar navigation from mock data if nav container exists.
+   * Render a single nav link.
+   * @param {object} item
+   * @param {string} currentPage
+   * @returns {string}
+   */
+  function renderNavLink(item, currentPage) {
+    const isActive = item.id === currentPage;
+    const iconPath = resolvePath(ICONS[item.icon] || ICONS.dashboard);
+    const href = resolveHref(item.href);
+    const logoutClass = item.isLogout ? " sidebar__link--logout" : "";
+    const badge = item.badge
+      ? `<span class="sidebar__link-badge">${item.badge}</span>`
+      : "";
+
+    return `
+      <li>
+        <a href="${href}"
+           class="sidebar__link${isActive ? " sidebar__link--active" : ""}${logoutClass}"
+           data-page="${item.id}">
+          <img src="${iconPath}" alt="" class="sidebar__link-icon" width="20" height="20">
+          <span>${item.label}</span>
+          ${badge}
+        </a>
+      </li>`;
+  }
+
+  /**
+   * Build sidebar navigation from shell config.
    */
   function renderNavigation() {
     const navContainer = document.querySelector("[data-nav-render]");
-    if (!navContainer || !window.FraudShieldMockData) return;
+    if (!navContainer) return;
 
-    const { navigation } = FraudShieldMockData;
     const currentPage = getCurrentPageId();
     let html = "";
 
-    navigation.forEach((section) => {
-      html += `<p class="sidebar__section-label">${section.section}</p><ul role="list">`;
+    SHELL_NAVIGATION.forEach((section) => {
+      html += `<p class="sidebar__section-label">${section.section}</p>`;
+      html += `<ul class="sidebar__nav-list" role="list">`;
 
       section.items.forEach((item) => {
-        const isActive = item.id === currentPage;
-        const iconPath = resolvePath(ICONS[item.icon] || ICONS.dashboard);
-        const href = resolvePath(item.href);
-        const badge = item.badge
-          ? `<span class="badge badge--high-risk" style="margin-left:auto">${item.badge}</span>`
-          : "";
-
-        html += `
-          <li>
-            <a href="${href}"
-               class="sidebar__link${isActive ? " sidebar__link--active" : ""}"
-               data-page="${item.id}">
-              <img src="${iconPath}" alt="" class="sidebar__link-icon" width="20" height="20">
-              <span>${item.label}</span>
-              ${badge}
-            </a>
-          </li>`;
+        html += renderNavLink(item, currentPage);
       });
 
       html += "</ul>";
     });
 
+    html += `<div class="sidebar__divider" role="separator"></div>`;
+    html += `<ul class="sidebar__nav-list" role="list">`;
+    html += renderNavLink(LOGOUT_ITEM, currentPage);
+    html += `</ul>`;
+
     navContainer.innerHTML = html;
   }
 
   /**
-   * Populate user info in sidebar footer from mock data.
+   * Set the page title in the header and document title.
    */
-  function renderUserInfo() {
-    const userContainer = document.querySelector("[data-user-render]");
-    if (!userContainer || !window.FraudShieldMockData) return;
+  function renderPageTitle() {
+    const title = getPageTitle();
+    const titleEl = document.querySelector("[data-page-title-render]");
+    if (titleEl) {
+      titleEl.textContent = title;
+    }
+    document.title = "FraudShield — " + title;
+  }
 
-    const user = FraudShieldMockData.currentUser;
+  /**
+   * Populate user info in the header from mock data.
+   */
+  function renderHeaderUser() {
+    const userContainer = document.querySelector("[data-header-user-render]");
+    if (!userContainer) return;
+
+    const user = window.FraudShieldMockData?.currentUser || {
+      name: "Alex Morgan",
+      role: "Fraud Analyst",
+      initials: "AM",
+    };
+
     userContainer.innerHTML = `
-      <div class="sidebar__user">
-        <div class="sidebar__avatar" aria-hidden="true">${user.initials}</div>
-        <div class="sidebar__user-info">
-          <p class="sidebar__user-name">${user.name}</p>
-          <p class="sidebar__user-role">${user.role}</p>
-        </div>
+      <div class="header__user-avatar" aria-hidden="true">${user.initials}</div>
+      <div class="header__user-info">
+        <p class="header__user-name">${user.name}</p>
+        <p class="header__user-role">${user.role}</p>
       </div>`;
   }
 
@@ -235,11 +357,11 @@
   function fixAssetPaths() {
     if (!window.location.pathname.includes("/pages/")) return;
 
-    document.querySelectorAll("[src^='assets/']").forEach((el) => {
+    document.querySelectorAll("[src^='assets/'], [src^='css/'], [src^='js/']").forEach((el) => {
       el.src = resolvePath(el.getAttribute("src"));
     });
 
-    document.querySelectorAll("[href^='assets/']").forEach((el) => {
+    document.querySelectorAll("[href^='assets/'], [href^='css/']").forEach((el) => {
       el.href = resolvePath(el.getAttribute("href"));
     });
   }
@@ -250,7 +372,8 @@
   function init() {
     fixAssetPaths();
     renderNavigation();
-    renderUserInfo();
+    renderPageTitle();
+    renderHeaderUser();
     setActiveNavigation();
     initSidebar();
     initDropdowns();
@@ -265,7 +388,10 @@
 
   window.FraudShieldApp = {
     resolvePath,
+    resolveHref,
     getCurrentPageId,
+    getPageTitle,
+    SHELL_NAVIGATION,
     init,
   };
 })();

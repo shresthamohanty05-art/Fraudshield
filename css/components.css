@@ -579,3 +579,475 @@
   background-color: var(--accent-muted);
   color: var(--text-primary);
 }
+
+/* ── Application shell components ── */
+
+.sidebar__nav-list {
+  margin-bottom: var(--space-2);
+}
+
+.sidebar__link--logout {
+  color: var(--text-secondary);
+}
+
+.sidebar__link--logout:hover {
+  background-color: var(--high-risk-bg);
+  color: var(--high-risk);
+}
+
+.sidebar__link--logout.sidebar__link--active {
+  background-color: var(--high-risk-bg);
+  color: var(--high-risk);
+}
+
+.sidebar__link--logout.sidebar__link--active::before {
+  background-color: var(--high-risk);
+}
+
+.sidebar__link-badge {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-full);
+  background-color: var(--high-risk);
+  color:var(--accent);
+  font-size: 0.6875rem;
+  font-weight: var(--font-bold);
+  line-height: 1;
+}
+
+.header__icon-btn img,
+.header__menu-btn img,
+.sidebar__close-btn img,
+.sidebar__link-icon {
+  filter: none;
+}
+
+.sidebar__link:not(.sidebar__link--active) .sidebar__link-icon {
+  opacity: 0.75;
+}
+
+.sidebar__link--active .sidebar__link-icon {
+  opacity: 1;
+}
+
+/* =========================================================
+   FRAUDSHIELD DASHBOARD
+   ========================================================= */
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.dashboard-card,
+.dashboard-panel {
+  background: #171133;
+  border: 1px solid rgba(155, 138, 251, 0.28);
+  border-radius: 8px;
+}
+
+.dashboard-card {
+  position: relative;
+  min-height: 143px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.dashboard-card__label {
+  color: #aaa5c2;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  margin-bottom: 10px;
+}
+
+.dashboard-card__value {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dashboard-card__value span {
+  color: #aaa5c2;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+.dashboard-card__status {
+  margin-top: 12px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.dashboard-card__status span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.dashboard-card__status--warning {
+  color: #f4c95d;
+}
+
+.dashboard-card__status--warning span {
+  background: #f4c95d;
+}
+
+.dashboard-card__status--safe {
+  color: #65e89a;
+}
+
+.dashboard-card__status--danger {
+  color: #ff7777;
+}
+
+.dashboard-card__status--accent {
+  color: #9b8afb;
+}
+
+.dashboard-mini-chart {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  width: 105px;
+  height: 30px;
+  border-bottom: 2px solid currentColor;
+  transform: skewY(-8deg);
+  opacity: .45;
+}
+
+.dashboard-mini-chart--green {
+  color: #65e89a;
+}
+
+.dashboard-mini-chart--red {
+  color: #ff7777;
+}
+
+.dashboard-mini-chart--purple {
+  color: #9b8afb;
+}
+
+
+/* Middle section */
+
+.dashboard-middle {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr .85fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.dashboard-panel {
+  padding: 18px;
+}
+
+.dashboard-panel__header {
+  margin-bottom: 18px;
+}
+
+.dashboard-panel__header h2 {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.dashboard-panel__header h2 small {
+  color: #aaa5c2;
+  font-size: 9px;
+  font-weight: 400;
+}
+
+
+/* Risk Distribution */
+
+.risk-distribution__body {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.risk-donut {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    #65e89a 0deg 187deg,
+    #f4c95d 187deg 306deg,
+    #ff7777 306deg 360deg
+  );
+  padding: 8px;
+}
+
+.risk-donut__inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #171133;
+}
+
+.risk-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  width: 100%;
+}
+
+.risk-legend__item {
+  display: grid;
+  grid-template-columns: 8px 1fr auto;
+  align-items: center;
+  gap: 7px;
+  color: #ffffff;
+  font-size: 11px;
+}
+
+.risk-legend__item strong {
+  display: block;
+}
+
+.risk-legend__item small {
+  color: #aaa5c2;
+  font-size: 9px;
+}
+
+.risk-legend__item b {
+  font-size: 10px;
+}
+
+.risk-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.risk-dot--safe {
+  background: #65e89a;
+}
+
+.risk-dot--medium {
+  background: #f4c95d;
+}
+
+.risk-dot--high {
+  background: #ff7777;
+}
+
+
+/* Risk Trend */
+
+.risk-chart {
+  position: relative;
+  height: 125px;
+  margin-top: 8px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.risk-chart__line {
+  position: absolute;
+  left: 5%;
+  right: 3%;
+  top: 42%;
+  height: 50px;
+  border-top: 2px solid #9b8afb;
+  transform: rotate(-2deg);
+  opacity: .75;
+}
+
+.risk-chart__labels {
+  position: absolute;
+  bottom: -16px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  color: #77738e;
+  font-size: 8px;
+}
+
+
+/* Risk Engine */
+
+.engine-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.engine-list > div {
+  display: grid;
+  grid-template-columns: 18px 1fr auto;
+  align-items: center;
+  gap: 7px;
+  color: #ddd9ed;
+  font-size: 10px;
+}
+
+.engine-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #65e89a;
+  border-radius: 50%;
+  color: #65e89a;
+  font-size: 8px;
+}
+
+.engine-list b {
+  padding: 3px 6px;
+  border-radius: 3px;
+  background: rgba(101, 232, 154, .12);
+  color: #65e89a;
+  font-size: 7px;
+}
+
+
+/* Bottom */
+
+.dashboard-bottom {
+  display: grid;
+  grid-template-columns: 1.65fr .7fr;
+  gap: var(--space-4);
+}
+
+.risk-factors {
+  min-height: 205px;
+}
+
+.risk-factor {
+  margin-bottom: 15px;
+}
+
+.risk-factor > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+  color: #ddd9ed;
+  font-size: 10px;
+}
+
+.risk-factor b {
+  color: #ffffff;
+}
+
+.risk-bar {
+  height: 5px;
+  border-radius: 5px;
+  background: rgba(255,255,255,.05);
+  overflow: hidden;
+}
+
+.risk-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #ff9d9d;
+}
+
+.risk-bar--yellow span {
+  background: #f4c95d;
+}
+
+.risk-bar--green span {
+  background: #65e89a;
+}
+
+
+/* Protection score */
+
+.protection-score {
+  text-align: center;
+}
+
+.score-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  margin: 10px auto 14px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #65e89a 0deg 281deg,
+    rgba(255,255,255,.08) 281deg 360deg
+  );
+  padding: 10px;
+}
+
+.score-circle > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #171133;
+}
+
+.score-circle strong {
+  color: #ffffff;
+  font-size: 27px;
+}
+
+.score-circle span {
+  color: #aaa5c2;
+  font-size: 9px;
+}
+
+.protection-score h3 {
+  color: #65e89a;
+  font-size: 16px;
+}
+
+.protection-score p {
+  margin-top: 5px;
+  color: #65e89a;
+  font-size: 9px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-middle {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .risk-engine {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .dashboard-stats,
+  .dashboard-middle,
+  .dashboard-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .risk-engine {
+    grid-column: auto;
+  }
+
+  .risk-distribution__body {
+    flex-direction: column;
+  }
+}
