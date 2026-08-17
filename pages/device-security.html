@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="FraudShield — Device Security"
+  >
+
+  <title>FraudShield — Device Security</title>
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <!-- Device Security CSS -->
+  <link rel="stylesheet" href="../css/device-security.css">
+</head>
+
+<body
+  data-page="device-security"
+  data-page-title="Device Security"
+>
+
+<div class="app">
+
+  <!-- ================= SIDEBAR ================= -->
+
+  <aside
+    class="sidebar"
+    id="sidebar"
+    aria-label="Main navigation"
+  >
+
+    <div class="sidebar__brand">
+
+      <img
+        src="../assets/icons/shield.svg"
+        alt=""
+        class="sidebar__logo"
+        width="32"
+        height="32"
+      >
+
+      <span class="sidebar__title">
+        FraudShield
+      </span>
+
+      <button
+        class="sidebar__close-btn"
+        type="button"
+        aria-label="Close navigation menu"
+      >
+        <img
+          src="../assets/icons/close.svg"
+          alt=""
+          width="22"
+          height="22"
+        >
+      </button>
+
+    </div>
+
+
+    <nav
+      class="sidebar__nav"
+      id="sidebar-nav"
+      aria-label="Sidebar"
+    >
+
+      <div data-nav-render></div>
+
+    </nav>
+
+  </aside>
+
+
+  <div
+    class="sidebar-overlay"
+    aria-hidden="true"
+  ></div>
+
+
+  <!-- ================= MAIN AREA ================= -->
+
+  <div class="app-main">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+      <div class="header__left">
+
+        <button
+          class="header__menu-btn"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="sidebar-nav"
+        >
+
+          <img
+            src="../assets/icons/menu.svg"
+            alt=""
+            width="22"
+            height="22"
+          >
+
+        </button>
+
+
+        <h1
+          class="header__page-title"
+          data-page-title-render
+        >
+          Device Security
+        </h1>
+
+      </div>
+
+
+      <div class="header__right">
+
+        <button
+          class="header__icon-btn header__icon-btn--has-badge"
+          type="button"
+          aria-label="Notifications"
+        >
+
+          <img
+            src="../assets/icons/bell.svg"
+            alt=""
+            width="20"
+            height="20"
+          >
+
+          <span
+            class="header__badge-dot"
+            aria-hidden="true"
+          ></span>
+
+        </button>
+
+
+        <div
+          class="header__user"
+          data-header-user-render
+        ></div>
+
+      </div>
+
+    </header>
+
+
+    <!-- ================= PAGE CONTENT ================= -->
+
+    <main class="content">
+
+      <div class="content__slot">
+
+        <section class="content__header">
+
+          <h2 class="content__title">
+            Device Security
+          </h2>
+
+          <p class="content__subtitle">
+            Monitor devices accessing your account and detect suspicious device changes.
+          </p>
+
+        </section>
+
+
+        <!-- ================= DEVICE SECURITY ================= -->
+
+        <section class="device-security-page">
+
+
+          <!-- SUMMARY CARDS -->
+
+          <div class="device-security-stats">
+
+            <article class="device-stat-card">
+
+              <div>
+
+                <span class="device-stat-card__label">
+                  TRUSTED DEVICES
+                </span>
+
+                <strong
+                  class="device-stat-card__value"
+                  id="trusted-device-count"
+                >
+                  2
+                </strong>
+
+              </div>
+
+              <div class="device-stat-icon device-stat-icon--trusted">
+                ✓
+              </div>
+
+            </article>
+
+
+            <article class="device-stat-card">
+
+              <div>
+
+                <span class="device-stat-card__label">
+                  NEW DEVICES
+                </span>
+
+                <strong
+                  class="device-stat-card__value"
+                  id="new-device-count"
+                >
+                  1
+                </strong>
+
+              </div>
+
+              <div class="device-stat-icon device-stat-icon--new">
+                ▣
+              </div>
+
+            </article>
+
+
+            <article class="device-stat-card">
+
+              <div>
+
+                <span class="device-stat-card__label">
+                  SUSPICIOUS DEVICES
+                </span>
+
+                <strong
+                  class="device-stat-card__value device-stat-card__value--danger"
+                  id="suspicious-device-count"
+                >
+                  1
+                </strong>
+
+              </div>
+
+              <div class="device-stat-icon device-stat-icon--danger">
+                !
+              </div>
+
+            </article>
+
+          </div>
+
+
+          <!-- MAIN GRID -->
+
+          <div class="device-security-grid">
+
+
+            <!-- LEFT COLUMN -->
+
+            <div class="device-security-main">
+
+
+              <!-- SUSPICIOUS DEVICE -->
+
+              <article class="device-alert-card">
+
+                <div class="device-alert-header">
+
+                  <div class="device-alert-title">
+
+                    <div class="device-icon device-icon--danger">
+                      ▣
+                    </div>
+
+                    <div>
+
+                      <div class="device-name-row">
+
+                        <h3>
+                          Vivo V29
+                        </h3>
+
+                        <span class="device-warning-badge">
+                          ⚠ Suspicious
+                        </span>
+
+                      </div>
+
+                      <p>
+                        First seen: Today, 02:17 AM -
+                        Bengaluru, India
+                      </p>
+
+                    </div>
+
+                  </div>
+
+
+                  <div class="device-risk-score">
+
+                    <span>
+                      DEVICE RISK SCORE
+                    </span>
+
+                    <strong>
+                      82<small>/100</small>
+                    </strong>
+
+                  </div>
+
+                </div>
+
+
+                <!-- RISK INDICATORS -->
+
+                <div class="device-risk-indicators">
+
+                  <h4>
+                    RISK INDICATORS
+                  </h4>
+
+                  <ul>
+
+                    <li>
+                      <span>●</span>
+                      New device never seen on this account.
+                    </li>
+
+                    <li>
+                      <span>◷</span>
+                      Unusual login time compared to historical patterns.
+                    </li>
+
+                    <li>
+                      <span>◉</span>
+                      Different device fingerprint characteristics detected.
+                    </li>
+
+                    <li>
+                      <span>▤</span>
+                      Transaction attempted shortly after initial login.
+                    </li>
+
+                  </ul>
+
+                </div>
+
+
+                <!-- ACTIONS -->
+
+                <div class="device-alert-actions">
+
+                  <button
+                    class="device-btn device-btn--danger"
+                    id="block-device-btn"
+                    type="button"
+                  >
+                    ⊘ Block Device
+                  </button>
+
+                  <button
+                    class="device-btn"
+                    id="review-activity-btn"
+                    type="button"
+                  >
+                    Review Activity
+                  </button>
+
+                </div>
+
+              </article>
+
+
+              <!-- TRUSTED WINDOWS PC -->
+
+              <article class="device-card">
+
+                <div class="device-card-top">
+
+                  <div class="device-card-title">
+
+                    <div class="device-icon">
+                      ▣
+                    </div>
+
+                    <div>
+
+                      <div class="device-name-row">
+
+                        <h3>
+                          Windows PC
+                        </h3>
+
+                        <span class="current-device-badge">
+                          Current Device
+                        </span>
+
+                      </div>
+
+                      <span class="device-status">
+                        Status: Trusted
+                      </span>
+
+                    </div>
+
+                  </div>
+
+
+                  <button
+                    class="device-details-btn"
+                    type="button"
+                    data-device="Windows PC"
+                  >
+                    View Details
+                  </button>
+
+                </div>
+
+
+                <div class="device-meta">
+
+                  <div>
+                    <span>Location</span>
+                    <strong>
+                      Bengaluru,<br>
+                      India
+                    </strong>
+                  </div>
+
+                  <div>
+                    <span>Last Active</span>
+                    <strong>Now</strong>
+                  </div>
+
+                  <div>
+                    <span>Browser</span>
+                    <strong>Chrome</strong>
+                  </div>
+
+                  <div>
+                    <span>IP Status</span>
+                    <strong>◉ Verified</strong>
+                  </div>
+
+                </div>
+
+              </article>
+
+
+              <!-- RECENT ACTIVITY -->
+
+              <article class="recent-device-activity">
+
+                <h3>
+                  Recent Device Activity
+                </h3>
+
+                <div class="activity-item">
+
+                  <div class="activity-dot"></div>
+
+                  <div>
+                    <strong>
+                      Windows PC
+                    </strong>
+
+                    <span>
+                      Successful login
+                    </span>
+                  </div>
+
+                  <time>
+                    Just now
+                  </time>
+
+                </div>
+
+
+                <div class="activity-item">
+
+                  <div class="activity-dot activity-dot--warning"></div>
+
+                  <div>
+                    <strong>
+                      Vivo V29
+                    </strong>
+
+                    <span>
+                      New device login detected
+                    </span>
+                  </div>
+
+                  <time>
+                    02:17 AM
+                  </time>
+
+                </div>
+
+              </article>
+
+            </div>
+
+
+            <!-- RIGHT COLUMN -->
+
+            <aside class="device-security-side">
+
+
+              <!-- EXPLAINABLE SECURITY -->
+
+              <article class="explainable-security-card">
+
+                <div class="side-card-title">
+
+                  <span class="side-card-icon">
+                    ✣
+                  </span>
+
+                  <h3>
+                    Explainable Security
+                  </h3>
+
+                </div>
+
+                <p class="side-card-question">
+                  Why is the Vivo V29 considered risky?
+                </p>
+
+
+                <div class="risk-factor">
+
+                  <div>
+
+                    <span>
+                      New Device
+                    </span>
+
+                    <strong>
+                      +30 pts
+                    </strong>
+
+                  </div>
+
+                  <div class="risk-progress">
+                    <span style="width: 82%;"></span>
+                  </div>
+
+                </div>
+
+
+                <div class="risk-factor">
+
+                  <div>
+
+                    <span>
+                      Unusual Time
+                    </span>
+
+                    <strong>
+                      +20 pts
+                    </strong>
+
+                  </div>
+
+                  <div class="risk-progress">
+                    <span style="width: 58%;"></span>
+                  </div>
+
+                </div>
+
+
+                <div class="risk-factor">
+
+                  <div>
+
+                    <span>
+                      Fingerprint Mismatch
+                    </span>
+
+                    <strong>
+                      +18 pts
+                    </strong>
+
+                  </div>
+
+                  <div class="risk-progress">
+                    <span style="width: 50%;"></span>
+                  </div>
+
+                </div>
+
+
+                <div class="risk-factor">
+
+                  <div>
+
+                    <span>
+                      Anomalous Behavior
+                    </span>
+
+                    <strong>
+                      +14 pts
+                    </strong>
+
+                  </div>
+
+                  <div class="risk-progress">
+                    <span style="width: 40%;"></span>
+                  </div>
+
+                </div>
+
+
+                <p class="security-explanation">
+                  The combination of a completely new
+                  hardware fingerprint attempting a
+                  transaction outside normal user hours
+                  resulted in a high risk classification.
+                </p>
+
+              </article>
+
+
+              <!-- TRUSTED DEVICES -->
+
+              <article class="trusted-devices-card">
+
+                <h3>
+                  Trusted Devices
+                </h3>
+
+
+                <div class="trusted-device-item">
+
+                  <span class="trusted-device-icon">
+                    ▯
+                  </span>
+
+                  <div>
+
+                    <strong>
+                      Android Phone
+                    </strong>
+
+                    <span>
+                      Active 2h ago
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div class="trusted-device-item trusted-device-item--active">
+
+                  <span class="trusted-device-icon">
+                    ▣
+                  </span>
+
+                  <div>
+
+                    <strong>
+                      Windows PC
+                    </strong>
+
+                    <span>
+                      Active Now
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <button
+                  class="manage-devices-btn"
+                  id="manage-devices-btn"
+                  type="button"
+                >
+                  Manage All Devices
+                </button>
+
+              </article>
+
+            </aside>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="../js/utils.js"></script>
+<script src="../js/mock-data.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/device-security.js"></script>
+
+</body>
+</html>
