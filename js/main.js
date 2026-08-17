@@ -378,10 +378,33 @@ function initSidebar() {
     });
   }
 
+    /**
+   * Initialize logout behavior.
+   */
+  function initLogout() {
+    document.addEventListener("click", (event) => {
+
+      const logoutLink = event.target.closest(".sidebar__link--logout");
+
+      if (!logoutLink) return;
+
+      event.preventDefault();
+
+      const confirmed = window.confirm(
+        "Are you sure you want to logout?"
+      );
+
+      if (!confirmed) return;
+
+      window.location.href = resolveHref(LOGOUT_ITEM.href);
+    });
+  }
+
+
   /**
    * Main entry point — run on DOM ready.
    */
-  function init() {
+function init() {
     fixAssetPaths();
     renderNavigation();
     renderPageTitle();
@@ -390,7 +413,8 @@ function initSidebar() {
     initSidebar();
     initDropdowns();
     initTabs();
-  }
+    initLogout();
+}
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
