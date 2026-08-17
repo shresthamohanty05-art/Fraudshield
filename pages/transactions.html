@@ -7,685 +7,588 @@
 
     <title>Transactions - FraudShield</title>
 
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/transactions.css">
 </head>
 
-<body>
+<body data-page="transactions" data-page-title="Transactions">
 
     <div class="app">
 
-        <!-- ================= SIDEBAR ================= -->
+        <!-- ================= SHARED FRAUDSHIELD SIDEBAR ================= -->
 
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar" aria-label="Main navigation">
 
-            <div class="brand">
-                <div class="brand-icon">🛡</div>
+            <div class="sidebar__brand">
 
-                <div>
-                    <h2>FraudShield</h2>
-                    <span>VIGILANT MODE ACTIVE</span>
-                </div>
-            </div>
+                <img src="../assets/icons/shield.svg" alt="" class="sidebar__logo" width="32" height="32">
 
+                <span class="sidebar__title">
+                    FraudShield
+                </span>
 
-            <nav class="navigation">
-
-                <div class="nav-section">
-
-                    <a href="../index.html" class="nav-item">
-                        <span>▦</span>
-                        Dashboard
-                    </a>
-
-                    <a href="new-transaction.html" class="nav-item">
-                        <span>▣</span>
-                        New Transaction
-                    </a>
-
-                    <a href="transactions.html"
-                       class="nav-item active">
-                        <span>▤</span>
-                        Transactions
-                    </a>
-
-                </div>
-
-
-                <div class="nav-title">
-                    ANALYSIS
-                </div>
-
-                <div class="nav-section">
-
-                    <a href="risk-analysis.html" class="nav-item">
-                        <span>⌁</span>
-                        Risk Analysis
-                    </a>
-
-                    <a href="voice-shield.html" class="nav-item">
-                        <span>♩</span>
-                        Voice Shield
-                    </a>
-
-                    <a href="device-security.html" class="nav-item">
-                        <span>▣</span>
-                        Device Security
-                    </a>
-
-                </div>
-
-
-                <div class="nav-title">
-                    SECURITY
-                </div>
-
-                <div class="nav-section">
-
-                    <a href="security-alerts.html" class="nav-item">
-                        <span>△</span>
-                        Security Alerts
-
-                        <b class="alert-count">12</b>
-                    </a>
-
-                    <a href="bank-review.html" class="nav-item">
-                        <span>♜</span>
-                        Bank Review
-                    </a>
-
-                </div>
-
-
-                <div class="nav-title">
-                    ACCOUNT
-                </div>
-
-                <div class="nav-section">
-
-                    <a href="settings.html" class="nav-item">
-                        <span>⚙</span>
-                        Settings
-                    </a>
-
-                    <a href="help.html" class="nav-item">
-                        <span>?</span>
-                        Help & Support
-                    </a>
-
-                </div>
-
-            </nav>
-
-
-            <div class="sidebar-bottom">
-
-                <button class="upgrade-btn">
-                    ↥ Upgrade Security
+                <button class="sidebar__close-btn" type="button" aria-label="Close navigation menu">
+                    <img src="../assets/icons/close.svg" alt="" width="22" height="22">
                 </button>
 
-                <div class="profile">
-
-                    <div class="profile-avatar">
-                        AM
-                    </div>
-
-                    <div>
-                        <strong>Alex Mercer</strong>
-                        <small>Lead Analyst</small>
-                    </div>
-
-                </div>
-
             </div>
+
+
+            <nav class="sidebar__nav" id="sidebar-nav" aria-label="Sidebar">
+                <div data-nav-render></div>
+            </nav>
 
         </aside>
 
 
-        <!-- ================= MAIN CONTENT ================= -->
+        <!-- Mobile overlay -->
 
-        <main class="main-content">
+        <div class="sidebar-overlay" aria-hidden="true"></div>
 
-            <!-- HEADER -->
 
-            <header class="top-header">
+        <!-- ================= MAIN APPLICATION AREA ================= -->
 
-                <div>
-                    <h1>Transactions</h1>
+        <div class="app-main">
 
-                    <p>
-                        View and analyze your recent payment activity
-                        and associated risk levels.
-                    </p>
+
+            <!-- ================= HEADER ================= -->
+
+            <header class="header">
+
+                <div class="header__left">
+
+                    <button class="header__menu-btn" type="button" aria-label="Open navigation menu"
+                        aria-expanded="false" aria-controls="sidebar-nav">
+                        <img src="../assets/icons/menu.svg" alt="" width="22" height="22">
+                    </button>
+
+                    <h1 class="header__page-title" data-page-title-render>
+                        Transactions
+                    </h1>
+
                 </div>
 
 
-                <div class="header-actions">
+                <div class="header__right">
 
-                    <div class="search-box">
+                    <button class="header__icon-btn header__icon-btn--has-badge" type="button"
+                        aria-label="Notifications">
 
-                        <span>⌕</span>
+                        <img src="../assets/icons/bell.svg" alt="" width="20" height="20">
 
-                        <input
-                            type="text"
-                            id="transaction-search"
-                            placeholder="Search transactions..."
-                        >
+                        <span class="header__badge-dot" aria-hidden="true"></span>
 
-                    </div>
+                    </button>
 
-                    <span class="notification">♧</span>
+
+                    <div class="header__user" data-header-user-render></div>
 
                 </div>
 
             </header>
 
 
-            <!-- ================= CONTENT ================= -->
+            <!-- ================= TRANSACTIONS CONTENT ================= -->
 
-            <section class="content">
+            <main class="content">
 
+                <div class="content__slot">
 
-                <!-- SUMMARY CARDS -->
+                    <!-- ================= CONTENT ================= -->
 
-                <div class="summary-grid">
-
-                    <div class="summary-card">
-
-                        <span>TOTAL<br>TRANSACTIONS</span>
-
-                        <strong id="total-count">
-                            128
-                        </strong>
-
-                        <small class="green">
-                            +12% this<br>week
-                        </small>
-
-                    </div>
+                    <section class="transactions-page">
 
 
-                    <div class="summary-card low">
+                        <!-- SUMMARY CARDS -->
 
-                        <span>LOW RISK</span>
+                        <div class="summary-grid">
 
-                        <strong>
-                            67
-                        </strong>
+                            <div class="summary-card">
 
-                        <div class="progress">
-                            <span></span>
-                        </div>
+                                <span>TOTAL<br>TRANSACTIONS</span>
 
-                    </div>
+                                <strong id="total-count">
+                                    128
+                                </strong>
 
-
-                    <div class="summary-card medium">
-
-                        <span>MEDIUM RISK</span>
-
-                        <strong>
-                            42
-                        </strong>
-
-                        <div class="progress">
-                            <span></span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="summary-card high">
-
-                        <span>HIGH RISK</span>
-
-                        <strong>
-                            19
-                        </strong>
-
-                        <div class="progress">
-                            <span></span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- TWO COLUMN AREA -->
-
-                <div class="transaction-layout">
-
-
-                    <!-- LEFT -->
-
-                    <div class="transactions-area">
-
-
-                        <!-- FILTERS -->
-
-                        <div class="filters">
-
-                            <div class="risk-filters">
-
-                                <button
-                                    class="filter-btn active"
-                                    data-risk="all">
-                                    All Risks
-                                </button>
-
-                                <button
-                                    class="filter-btn"
-                                    data-risk="low">
-                                    ● Low
-                                </button>
-
-                                <button
-                                    class="filter-btn"
-                                    data-risk="medium">
-                                    ● Med
-                                </button>
-
-                                <button
-                                    class="filter-btn"
-                                    data-risk="high">
-                                    ● High
-                                </button>
+                                <small class="green">
+                                    +12% this<br>week
+                                </small>
 
                             </div>
 
 
-                            <div class="extra-filters">
+                            <div class="summary-card low">
 
-                                <button>
-                                    ▣ Date
-                                </button>
+                                <span>LOW RISK</span>
 
-                                <button>
-                                    ◉ Method
-                                </button>
+                                <strong>
+                                    67
+                                </strong>
+
+                                <div class="progress">
+                                    <span></span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="summary-card medium">
+
+                                <span>MEDIUM RISK</span>
+
+                                <strong>
+                                    42
+                                </strong>
+
+                                <div class="progress">
+                                    <span></span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="summary-card high">
+
+                                <span>HIGH RISK</span>
+
+                                <strong>
+                                    19
+                                </strong>
+
+                                <div class="progress">
+                                    <span></span>
+                                </div>
 
                             </div>
 
                         </div>
 
 
-                        <!-- TABLE -->
+                        <!-- TWO COLUMN AREA -->
 
-                        <div class="transaction-table">
-
-                            <div class="table-header">
-
-                                <span>TRANSACTION</span>
-                                <span>DATE & TIME</span>
-                                <span>AMOUNT / METHOD</span>
-                                <span>RISK SCORE</span>
-
-                            </div>
+                        <div class="transaction-layout">
 
 
-                            <div id="transaction-list">
+                            <!-- LEFT -->
 
-                                <!-- Transaction 1 -->
+                            <div class="transactions-area">
 
-                                <div
-                                    class="transaction-row"
-                                    data-risk="high">
 
-                                    <div class="transaction-info">
+                                <!-- FILTERS -->
 
-                                        <div class="transaction-icon red">
-                                            $
+                                <div class="filters">
+
+                                    <div class="risk-filters">
+
+                                        <button class="filter-btn active" data-risk="all">
+                                            All Risks
+                                        </button>
+
+                                        <button class="filter-btn" data-risk="low">
+                                            ● Low
+                                        </button>
+
+                                        <button class="filter-btn" data-risk="medium">
+                                            ● Med
+                                        </button>
+
+                                        <button class="filter-btn" data-risk="high">
+                                            ● High
+                                        </button>
+
+                                    </div>
+
+
+                                    <div class="extra-filters">
+
+                                        <button>
+                                            ▣ Date
+                                        </button>
+
+                                        <button>
+                                            ◉ Method
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- TABLE -->
+
+                                <div class="transaction-table">
+
+                                    <div class="table-header">
+
+                                        <span>TRANSACTION</span>
+                                        <span>DATE & TIME</span>
+                                        <span>AMOUNT / METHOD</span>
+                                        <span>RISK SCORE</span>
+
+                                    </div>
+
+
+                                    <div id="transaction-list">
+
+                                        <!-- Transaction 1 -->
+
+                                        <div class="transaction-row" data-risk="high">
+
+                                            <div class="transaction-info">
+
+                                                <div class="transaction-icon red">
+                                                    $
+                                                </div>
+
+                                                <div>
+                                                    <strong>
+                                                        Rohit Kumar
+                                                    </strong>
+
+                                                    <small>
+                                                        TXN-48291
+                                                    </small>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div>
+                                                <strong>14 Aug</strong>
+                                                <small>02:17 AM</small>
+                                            </div>
+
+
+                                            <div>
+                                                <strong>₹30,000</strong>
+                                                <small>UPI • Vivo V29</small>
+                                            </div>
+
+
+                                            <div class="risk-score high-score">
+                                                ⚠ <strong>84</strong>/100
+                                            </div>
+
                                         </div>
+
+
+                                        <!-- Transaction 2 -->
+
+                                        <div class="transaction-row" data-risk="low">
+
+                                            <div class="transaction-info">
+
+                                                <div class="transaction-icon blue">
+                                                    ▣
+                                                </div>
+
+                                                <div>
+                                                    <strong>
+                                                        Amazon
+                                                    </strong>
+
+                                                    <small>
+                                                        TXN-48276
+                                                    </small>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div>
+                                                <strong>14 Aug</strong>
+                                                <small>11:42 AM</small>
+                                            </div>
+
+
+                                            <div>
+                                                <strong>₹1,299</strong>
+                                                <small>UPI • Trusted Device</small>
+                                            </div>
+
+
+                                            <div class="risk-score low-score">
+                                                ✓ <strong>12</strong>/100
+                                            </div>
+
+                                        </div>
+
+
+                                        <!-- Transaction 3 -->
+
+                                        <div class="transaction-row" data-risk="medium">
+
+                                            <div class="transaction-info">
+
+                                                <div class="transaction-icon purple">
+                                                    ♟
+                                                </div>
+
+                                                <div>
+                                                    <strong>
+                                                        Priya Sharma
+                                                    </strong>
+
+                                                    <small>
+                                                        TXN-48251
+                                                    </small>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div>
+                                                <strong>13 Aug</strong>
+                                                <small>08:35 PM</small>
+                                            </div>
+
+
+                                            <div>
+                                                <strong>₹5,600</strong>
+                                                <small>UPI • Android Phone</small>
+                                            </div>
+
+
+                                            <div class="risk-score medium-score">
+                                                ● <strong>58</strong>/100
+                                            </div>
+
+                                        </div>
+
+
+                                        <!-- Transaction 4 -->
+
+                                        <div class="transaction-row" data-risk="low">
+
+                                            <div class="transaction-info">
+
+                                                <div class="transaction-icon green">
+                                                    ♜
+                                                </div>
+
+                                                <div>
+                                                    <strong>
+                                                        Swiggy
+                                                    </strong>
+
+                                                    <small>
+                                                        TXN-48220
+                                                    </small>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div>
+                                                <strong>13 Aug</strong>
+                                                <small>03:14 PM</small>
+                                            </div>
+
+
+                                            <div>
+                                                <strong>₹760</strong>
+                                                <small>UPI • Trusted Device</small>
+                                            </div>
+
+
+                                            <div class="risk-score low-score">
+                                                ✓ <strong>8</strong>/100
+                                            </div>
+
+                                        </div>
+
+
+                                        <!-- Transaction 5 -->
+
+                                        <div class="transaction-row" data-risk="high">
+
+                                            <div class="transaction-info">
+
+                                                <div class="transaction-icon red">
+                                                    ⊗
+                                                </div>
+
+                                                <div>
+                                                    <strong>
+                                                        Unknown Recipient
+                                                    </strong>
+
+                                                    <small>
+                                                        TXN-48198
+                                                    </small>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div>
+                                                <strong>12 Aug</strong>
+                                                <small>01:05 AM</small>
+                                            </div>
+
+
+                                            <div>
+                                                <strong>₹18,500</strong>
+                                                <small>UPI • New Device</small>
+                                            </div>
+
+
+                                            <div class="risk-score high-score">
+                                                ⚠ <strong>79</strong>/100
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- PAGINATION -->
+
+                                    <div class="pagination">
+
+                                        <span>
+                                            Showing 1-5 of 128
+                                        </span>
 
                                         <div>
-                                            <strong>
-                                                Rohit Kumar
-                                            </strong>
 
-                                            <small>
-                                                TXN-48291
-                                            </small>
+                                            <button id="prev-btn">
+                                                ‹
+                                            </button>
+
+                                            <button id="next-btn">
+                                                ›
+                                            </button>
+
                                         </div>
 
                                     </div>
 
+                                </div>
+
+                            </div>
+
+
+                            <!-- ================= RISK PANEL ================= -->
+
+                            <aside class="risk-panel">
+
+                                <div class="risk-header">
+
+                                    <span>
+                                        ⚠ High Risk Detected
+                                    </span>
+
+                                    <strong>
+                                        84<small>/100</small>
+                                    </strong>
+
+                                    <label>
+                                        RISK SCORE
+                                    </label>
+
+                                </div>
+
+
+                                <div class="risk-details">
 
                                     <div>
-                                        <strong>14 Aug</strong>
-                                        <small>02:17 AM</small>
+                                        <span>RECIPIENT</span>
+                                        <strong>Rohit Kumar</strong>
                                     </div>
 
-
                                     <div>
+                                        <span>AMOUNT</span>
                                         <strong>₹30,000</strong>
-                                        <small>UPI • Vivo V29</small>
                                     </div>
 
+                                    <div>
+                                        <span>METHOD</span>
+                                        <strong>UPI</strong>
+                                    </div>
 
-                                    <div class="risk-score high-score">
-                                        ⚠ <strong>84</strong>/100
+                                    <div>
+                                        <span>DEVICE</span>
+                                        <strong>Vivo V29 (New)</strong>
                                     </div>
 
                                 </div>
 
 
-                                <!-- Transaction 2 -->
+                                <div class="location">
 
-                                <div
-                                    class="transaction-row"
-                                    data-risk="low">
+                                    <span>
+                                        LOCATION CONTEXT
+                                    </span>
 
-                                    <div class="transaction-info">
-
-                                        <div class="transaction-icon blue">
-                                            ▣
-                                        </div>
-
-                                        <div>
-                                            <strong>
-                                                Amazon
-                                            </strong>
-
-                                            <small>
-                                                TXN-48276
-                                            </small>
-                                        </div>
-
-                                    </div>
-
-
-                                    <div>
-                                        <strong>14 Aug</strong>
-                                        <small>11:42 AM</small>
-                                    </div>
-
-
-                                    <div>
-                                        <strong>₹1,299</strong>
-                                        <small>UPI • Trusted Device</small>
-                                    </div>
-
-
-                                    <div class="risk-score low-score">
-                                        ✓ <strong>12</strong>/100
+                                    <div class="location-box">
+                                        Bengaluru, KA, India
                                     </div>
 
                                 </div>
 
 
-                                <!-- Transaction 3 -->
+                                <div class="risk-factors">
 
-                                <div
-                                    class="transaction-row"
-                                    data-risk="medium">
+                                    <span>
+                                        PRIMARY RISK FACTORS
+                                    </span>
 
-                                    <div class="transaction-info">
 
-                                        <div class="transaction-icon purple">
-                                            ♟
-                                        </div>
-
-                                        <div>
-                                            <strong>
-                                                Priya Sharma
-                                            </strong>
-
-                                            <small>
-                                                TXN-48251
-                                            </small>
-                                        </div>
-
+                                    <div class="factor red-factor">
+                                        <span>▣ New Device IP</span>
+                                        <strong>+24</strong>
                                     </div>
 
 
-                                    <div>
-                                        <strong>13 Aug</strong>
-                                        <small>08:35 PM</small>
+                                    <div class="factor yellow-factor">
+                                        <span>▣ Unusual Amount</span>
+                                        <strong>+21</strong>
                                     </div>
 
 
-                                    <div>
-                                        <strong>₹5,600</strong>
-                                        <small>UPI • Android Phone</small>
+                                    <div class="factor orange-factor">
+                                        <span>▣ Time of Day Anomaly</span>
+                                        <strong>+18</strong>
                                     </div>
 
 
-                                    <div class="risk-score medium-score">
-                                        ● <strong>58</strong>/100
+                                    <div class="factor green-factor">
+                                        <span>▣ Biometric Match</span>
+                                        <strong>+12</strong>
                                     </div>
 
                                 </div>
 
 
-                                <!-- Transaction 4 -->
+                                <button class="full-analysis-btn" id="full-analysis-btn">
 
-                                <div
-                                    class="transaction-row"
-                                    data-risk="low">
+                                    ◉ View Full Risk Analysis
 
-                                    <div class="transaction-info">
+                                </button>
 
-                                        <div class="transaction-icon green">
-                                            ♜
-                                        </div>
-
-                                        <div>
-                                            <strong>
-                                                Swiggy
-                                            </strong>
-
-                                            <small>
-                                                TXN-48220
-                                            </small>
-                                        </div>
-
-                                    </div>
-
-
-                                    <div>
-                                        <strong>13 Aug</strong>
-                                        <small>03:14 PM</small>
-                                    </div>
-
-
-                                    <div>
-                                        <strong>₹760</strong>
-                                        <small>UPI • Trusted Device</small>
-                                    </div>
-
-
-                                    <div class="risk-score low-score">
-                                        ✓ <strong>8</strong>/100
-                                    </div>
-
-                                </div>
-
-
-                                <!-- Transaction 5 -->
-
-                                <div
-                                    class="transaction-row"
-                                    data-risk="high">
-
-                                    <div class="transaction-info">
-
-                                        <div class="transaction-icon red">
-                                            ⊗
-                                        </div>
-
-                                        <div>
-                                            <strong>
-                                                Unknown Recipient
-                                            </strong>
-
-                                            <small>
-                                                TXN-48198
-                                            </small>
-                                        </div>
-
-                                    </div>
-
-
-                                    <div>
-                                        <strong>12 Aug</strong>
-                                        <small>01:05 AM</small>
-                                    </div>
-
-
-                                    <div>
-                                        <strong>₹18,500</strong>
-                                        <small>UPI • New Device</small>
-                                    </div>
-
-
-                                    <div class="risk-score high-score">
-                                        ⚠ <strong>79</strong>/100
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <!-- PAGINATION -->
-
-                            <div class="pagination">
-
-                                <span>
-                                    Showing 1-5 of 128
-                                </span>
-
-                                <div>
-
-                                    <button id="prev-btn">
-                                        ‹
-                                    </button>
-
-                                    <button id="next-btn">
-                                        ›
-                                    </button>
-
-                                </div>
-
-                            </div>
+                            </aside>
 
                         </div>
 
-                    </div>
-
-
-                    <!-- ================= RISK PANEL ================= -->
-
-                    <aside class="risk-panel">
-
-                        <div class="risk-header">
-
-                            <span>
-                                ⚠ High Risk Detected
-                            </span>
-
-                            <strong>
-                                84<small>/100</small>
-                            </strong>
-
-                            <label>
-                                RISK SCORE
-                            </label>
-
-                        </div>
-
-
-                        <div class="risk-details">
-
-                            <div>
-                                <span>RECIPIENT</span>
-                                <strong>Rohit Kumar</strong>
-                            </div>
-
-                            <div>
-                                <span>AMOUNT</span>
-                                <strong>₹30,000</strong>
-                            </div>
-
-                            <div>
-                                <span>METHOD</span>
-                                <strong>UPI</strong>
-                            </div>
-
-                            <div>
-                                <span>DEVICE</span>
-                                <strong>Vivo V29 (New)</strong>
-                            </div>
-
-                        </div>
-
-
-                        <div class="location">
-
-                            <span>
-                                LOCATION CONTEXT
-                            </span>
-
-                            <div class="location-box">
-                                Bengaluru, KA, India
-                            </div>
-
-                        </div>
-
-
-                        <div class="risk-factors">
-
-                            <span>
-                                PRIMARY RISK FACTORS
-                            </span>
-
-
-                            <div class="factor red-factor">
-                                <span>▣ New Device IP</span>
-                                <strong>+24</strong>
-                            </div>
-
-
-                            <div class="factor yellow-factor">
-                                <span>▣ Unusual Amount</span>
-                                <strong>+21</strong>
-                            </div>
-
-
-                            <div class="factor orange-factor">
-                                <span>▣ Time of Day Anomaly</span>
-                                <strong>+18</strong>
-                            </div>
-
-
-                            <div class="factor green-factor">
-                                <span>▣ Biometric Match</span>
-                                <strong>+12</strong>
-                            </div>
-
-                        </div>
-
-
-                        <button
-                            class="full-analysis-btn"
-                            id="full-analysis-btn">
-
-                            ◉ View Full Risk Analysis
-
-                        </button>
-
-                    </aside>
+                    </section>
 
                 </div>
 
-            </section>
+            </main>
 
-        </main>
-
-    </div>
+        </div>
 
 
-    <script src="../js/transactions.js"></script>
+
+
+        <script src="../js/main.js"></script>
+        <script src="../js/transactions.js"></script>
 
 </body>
 
