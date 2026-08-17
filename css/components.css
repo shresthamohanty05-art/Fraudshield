@@ -1432,5 +1432,13 @@
     width: 150px;
   }
 }
-```
 
+.sidebar__nav img {
+    filter: brightness(0) invert(1);
+}
+
+.header__menu-btn img,
+.header__icon-btn img,
+.sidebar__close-btn img {
+    filter: brightness(0) invert(1);
+}

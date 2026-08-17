@@ -34,7 +34,7 @@
 }
 
 .sidebar__close-btn {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 36px;
@@ -374,3 +374,28 @@
 .grid--2 { grid-template-columns: repeat(2, 1fr); }
 .grid--3 { grid-template-columns: repeat(3, 1fr); }
 .grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+
+/* Desktop sidebar close */
+@media (min-width: 769px) {
+
+    .sidebar--closed {
+        transform: translateX(-100%);
+    }
+
+    .sidebar--closed + .sidebar-overlay {
+        display: none;
+    }
+
+    .sidebar--closed ~ .app-main {
+        margin-left: 0;
+        width: 100%;
+    }
+
+        .sidebar--closed ~ .app-main .header__menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
