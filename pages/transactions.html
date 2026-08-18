@@ -1,692 +1,543 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Transactions - FraudShield</title>
+    <title>FraudShield - Settings</title>
 
-    <link rel="stylesheet" href="../css/transactions.css">
+    <link rel="stylesheet" href="../css/settings.css">
 </head>
 
 <body>
 
-    <div class="app">
+    <!-- ================= SIDEBAR ================= -->
 
-        <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
 
-        <aside class="sidebar">
+        <!-- LOGO -->
+        <div class="brand">
+            <svg class="brand-logo" viewBox="0 0 40 40" aria-hidden="true">
+                <path
+                    d="M20 3L34 8V18C34 27 28 33 20 37C12 33 6 27 6 18V8L20 3Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M13 19L18 24L27 14"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </svg>
 
-            <div class="brand">
-                <div class="brand-icon">🛡</div>
-
-                <div>
-                    <h2>FraudShield</h2>
-                    <span>VIGILANT MODE ACTIVE</span>
-                </div>
-            </div>
-
-
-            <nav class="navigation">
-
-                <div class="nav-section">
-
-                    <a href="../index.html" class="nav-item">
-                        <span>▦</span>
-                        Dashboard
-                    </a>
-
-                    <a href="new-transaction.html" class="nav-item">
-                        <span>▣</span>
-                        New Transaction
-                    </a>
-
-                    <a href="transactions.html"
-                       class="nav-item active">
-                        <span>▤</span>
-                        Transactions
-                    </a>
-
-                </div>
+            <span>FraudShield</span>
+        </div>
 
 
-                <div class="nav-title">
-                    ANALYSIS
-                </div>
+        <nav class="sidebar-nav">
 
-                <div class="nav-section">
+            <!-- OVERVIEW -->
+            <div class="nav-heading">OVERVIEW</div>
 
-                    <a href="risk-analysis.html" class="nav-item">
-                        <span>⌁</span>
-                        Risk Analysis
-                    </a>
-
-                    <a href="voice-shield.html" class="nav-item">
-                        <span>♩</span>
-                        Voice Shield
-                    </a>
-
-                    <a href="device-security.html" class="nav-item">
-                        <span>▣</span>
-                        Device Security
-                    </a>
-
-                </div>
+            <a href="../index.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                    </svg>
+                </span>
+                <span>Dashboard</span>
+            </a>
 
 
-                <div class="nav-title">
-                    SECURITY
-                </div>
-
-                <div class="nav-section">
-
-                    <a href="security-alerts.html" class="nav-item">
-                        <span>△</span>
-                        Security Alerts
-
-                        <b class="alert-count">12</b>
-                    </a>
-
-                    <a href="bank-review.html" class="nav-item">
-                        <span>♜</span>
-                        Bank Review
-                    </a>
-
-                </div>
+            <a href="new-transaction.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="4" y="4" width="16" height="16" rx="1"></rect>
+                        <path d="M12 8V16"></path>
+                        <path d="M8 12H16"></path>
+                    </svg>
+                </span>
+                <span>New Transaction</span>
+            </a>
 
 
-                <div class="nav-title">
-                    ACCOUNT
-                </div>
-
-                <div class="nav-section">
-
-                    <a href="settings.html" class="nav-item">
-                        <span>⚙</span>
-                        Settings
-                    </a>
-
-                    <a href="help.html" class="nav-item">
-                        <span>?</span>
-                        Help & Support
-                    </a>
-
-                </div>
-
-            </nav>
+            <a href="transactions.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                        <path d="M8 9H16"></path>
+                        <path d="M8 12H16"></path>
+                        <path d="M8 15H13"></path>
+                    </svg>
+                </span>
+                <span>Transactions</span>
+            </a>
 
 
-            <div class="sidebar-bottom">
+            <!-- ANALYSIS -->
+            <div class="nav-heading">ANALYSIS</div>
 
-                <button class="upgrade-btn">
-                    ↥ Upgrade Security
+            <a href="risk-analysis.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 19V5"></path>
+                        <path d="M4 19H20"></path>
+                        <path d="M7 15L11 11L14 13L20 7"></path>
+                    </svg>
+                </span>
+                <span>Risk Analysis</span>
+            </a>
+
+
+            <a href="voice-shield.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="8" y="3" width="8" height="13" rx="4"></rect>
+                        <path d="M5 11C5 15 8 18 12 18C16 18 19 15 19 11"></path>
+                        <path d="M12 18V22"></path>
+                        <path d="M8 22H16"></path>
+                    </svg>
+                </span>
+                <span>Voice Shield</span>
+            </a>
+
+
+            <a href="device-security.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="7" y="3" width="10" height="18" rx="2"></rect>
+                        <path d="M10 6H14"></path>
+                        <circle cx="12" cy="18" r="1"></circle>
+                    </svg>
+                </span>
+                <span>Device Security</span>
+            </a>
+
+
+            <!-- SECURITY -->
+            <div class="nav-heading">SECURITY</div>
+
+            <a href="security-alerts.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M18 9C18 5.7 15.8 3 12 3C8.2 3 6 5.7 6 9C6 14 4 16 4 17H20C20 16 18 14 18 9Z"></path>
+                        <path d="M10 20C10.5 21 11.2 21.5 12 21.5C12.8 21.5 13.5 21 14 20"></path>
+                    </svg>
+                </span>
+
+                <span>Security Alerts</span>
+
+                <span class="alert-badge">12</span>
+            </a>
+
+
+            <a href="bank-review.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 9L12 4L21 9"></path>
+                        <path d="M5 9V19"></path>
+                        <path d="M9 9V19"></path>
+                        <path d="M15 9V19"></path>
+                        <path d="M19 9V19"></path>
+                        <path d="M3 19H21"></path>
+                    </svg>
+                </span>
+                <span>Bank Review</span>
+            </a>
+
+
+            <!-- ACCOUNT -->
+            <div class="nav-heading">ACCOUNT</div>
+
+            <a href="settings.html" class="nav-item active">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19 12C19 11.4 18.9 10.8 18.7 10.3L21 8.8L18.8 5L16.5 6.3C15.6 5.6 14.6 5.1 13.5 4.9L13.2 2H8.8L8.5 4.9C7.4 5.1 6.4 5.6 5.5 6.3L3.2 5L1 8.8L3.3 10.3C3.1 10.8 3 11.4 3 12C3 12.6 3.1 13.2 3.3 13.7L1 15.2L3.2 19L5.5 17.7C6.4 18.4 7.4 18.9 8.5 19.1L8.8 22H13.2L13.5 19.1C14.6 18.9 15.6 18.4 16.5 17.7L18.8 19L21 15.2L18.7 13.7C18.9 13.2 19 12.6 19 12Z"></path>
+                    </svg>
+                </span>
+                <span>Settings</span>
+            </a>
+
+
+            <a href="#" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M9.5 9A2.5 2.5 0 0 1 12 7C13.7 7 15 8.2 15 9.7C15 11.7 12 12 12 14"></path>
+                        <circle cx="12" cy="17.5" r="0.8" fill="currentColor" stroke="none"></circle>
+                    </svg>
+                </span>
+                <span>Help &amp; Support</span>
+            </a>
+
+
+            <div class="sidebar-divider"></div>
+
+
+            <a href="#" class="nav-item logout">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10 5H5V19H10"></path>
+                        <path d="M13 8L17 12L13 16"></path>
+                        <path d="M17 12H7"></path>
+                    </svg>
+                </span>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- TOP HEADER -->
+        <header class="topbar">
+
+            <h1>Settings</h1>
+
+            <div class="topbar-right">
+
+                <button class="notification-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M18 9C18 5.7 15.8 3 12 3C8.2 3 6 5.7 6 9C6 14 4 16 4 17H20C20 16 18 14 18 9Z"></path>
+                        <path d="M10 20C10.5 21 11.2 21.5 12 21.5C12.8 21.5 13.5 21 14 20"></path>
+                    </svg>
+                    <span class="notification-dot"></span>
                 </button>
 
-                <div class="profile">
 
-                    <div class="profile-avatar">
-                        AM
-                    </div>
+                <div class="user-profile">
 
-                    <div>
-                        <strong>Alex Mercer</strong>
-                        <small>Lead Analyst</small>
+                    <div class="avatar">AM</div>
+
+                    <div class="user-info">
+                        <strong>Alex Morgan</strong>
+                        <span>Fraud Analyst</span>
                     </div>
 
                 </div>
 
             </div>
 
-        </aside>
+        </header>
 
 
-        <!-- ================= MAIN CONTENT ================= -->
+        <!-- ================= SETTINGS ================= -->
 
-        <main class="main-content">
+        <section class="settings-page">
 
-            <!-- HEADER -->
+            <div class="page-title">
+                <h2>Settings</h2>
+                <p>
+                    Manage your account, security and FraudShield preferences.
+                </p>
+            </div>
 
-            <header class="top-header">
 
-                <div>
-                    <h1>Transactions</h1>
+            <!-- SETTINGS TABS -->
 
+            <div class="settings-tabs">
+
+                <button class="settings-tab active" data-target="account">
+                    <span>◉</span>
+                    Account
+                </button>
+
+                <button class="settings-tab" data-target="security">
+                    <span>▣</span>
+                    Security
+                </button>
+
+                <button class="settings-tab" data-target="notifications">
+                    <span>♧</span>
+                    Notifications
+                </button>
+
+                <button class="settings-tab" data-target="fraud">
+                    <span>◇</span>
+                    Fraud Protection
+                </button>
+
+                <button class="settings-tab" data-target="appearance">
+                    <span>◐</span>
+                    Appearance
+                </button>
+
+            </div>
+
+
+            <!-- ACCOUNT -->
+
+            <section id="account" class="settings-panel active">
+
+                <div class="panel-heading">
+                    <h3>Account Settings</h3>
                     <p>
-                        View and analyze your recent payment activity
-                        and associated risk levels.
+                        Manage your personal information and account details.
                     </p>
                 </div>
 
 
-                <div class="header-actions">
+                <div class="account-profile">
 
-                    <div class="search-box">
+                    <div class="large-avatar">
+                        AM
+                    </div>
 
-                        <span>⌕</span>
+                    <div class="account-info">
+                        <h4>Alex Morgan</h4>
+                        <p>Fraud Analyst</p>
+                        <span>● Account Verified</span>
+                    </div>
 
+                    <button class="outline-btn">
+                        Change Photo
+                    </button>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Full Name</label>
                         <input
                             type="text"
-                            id="transaction-search"
-                            placeholder="Search transactions..."
-                        >
-
-                    </div>
-
-                    <span class="notification">♧</span>
-
-                </div>
-
-            </header>
-
-
-            <!-- ================= CONTENT ================= -->
-
-            <section class="content">
-
-
-                <!-- SUMMARY CARDS -->
-
-                <div class="summary-grid">
-
-                    <div class="summary-card">
-
-                        <span>TOTAL<br>TRANSACTIONS</span>
-
-                        <strong id="total-count">
-                            128
-                        </strong>
-
-                        <small class="green">
-                            +12% this<br>week
-                        </small>
-
+                            id="fullName"
+                            value="Alex Morgan">
                     </div>
 
 
-                    <div class="summary-card low">
-
-                        <span>LOW RISK</span>
-
-                        <strong>
-                            67
-                        </strong>
-
-                        <div class="progress">
-                            <span></span>
-                        </div>
-
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            value="alex.morgan@example.com">
                     </div>
 
 
-                    <div class="summary-card medium">
-
-                        <span>MEDIUM RISK</span>
-
-                        <strong>
-                            42
-                        </strong>
-
-                        <div class="progress">
-                            <span></span>
-                        </div>
-
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input
+                            type="text"
+                            id="phone"
+                            value="+91 98765 43210">
                     </div>
 
 
-                    <div class="summary-card high">
-
-                        <span>HIGH RISK</span>
-
-                        <strong>
-                            19
-                        </strong>
-
-                        <div class="progress">
-                            <span></span>
-                        </div>
-
+                    <div class="form-group">
+                        <label>Role</label>
+                        <input
+                            type="text"
+                            value="Fraud Analyst"
+                            disabled>
                     </div>
 
                 </div>
 
 
-                <!-- TWO COLUMN AREA -->
-
-                <div class="transaction-layout">
-
-
-                    <!-- LEFT -->
-
-                    <div class="transactions-area">
-
-
-                        <!-- FILTERS -->
-
-                        <div class="filters">
-
-                            <div class="risk-filters">
-
-                                <button
-                                    class="filter-btn active"
-                                    data-risk="all">
-                                    All Risks
-                                </button>
-
-                                <button
-                                    class="filter-btn"
-                                    data-risk="low">
-                                    ● Low
-                                </button>
-
-                                <button
-                                    class="filter-btn"
-                                    data-risk="medium">
-                                    ● Med
-                                </button>
-
-                                <button
-                                    class="filter-btn"
-                                    data-risk="high">
-                                    ● High
-                                </button>
-
-                            </div>
-
-
-                            <div class="extra-filters">
-
-                                <button>
-                                    ▣ Date
-                                </button>
-
-                                <button>
-                                    ◉ Method
-                                </button>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- TABLE -->
-
-                        <div class="transaction-table">
-
-                            <div class="table-header">
-
-                                <span>TRANSACTION</span>
-                                <span>DATE & TIME</span>
-                                <span>AMOUNT / METHOD</span>
-                                <span>RISK SCORE</span>
-
-                            </div>
-
-
-                            <div id="transaction-list">
-
-                                <!-- Transaction 1 -->
-
-                                <div
-                                    class="transaction-row"
-                                    data-risk="high">
-
-                                    <div class="transaction-info">
-
-                                        <div class="transaction-icon red">
-                                            $
-                                        </div>
-
-                                        <div>
-                                            <strong>
-                                                Rohit Kumar
-                                            </strong>
-
-                                            <small>
-                                                TXN-48291
-                                            </small>
-                                        </div>
-
-                                    </div>
-
-
-                                    <div>
-                                        <strong>14 Aug</strong>
-                                        <small>02:17 AM</small>
-                                    </div>
-
-
-                                    <div>
-                                        <strong>₹30,000</strong>
-                                        <small>UPI • Vivo V29</small>
-                                    </div>
-
-
-                                    <div class="risk-score high-score">
-                                        ⚠ <strong>84</strong>/100
-                                    </div>
-
-                                </div>
-
-
-                                <!-- Transaction 2 -->
-
-                                <div
-                                    class="transaction-row"
-                                    data-risk="low">
-
-                                    <div class="transaction-info">
-
-                                        <div class="transaction-icon blue">
-                                            ▣
-                                        </div>
-
-                                        <div>
-                                            <strong>
-                                                Amazon
-                                            </strong>
-
-                                            <small>
-                                                TXN-48276
-                                            </small>
-                                        </div>
-
-                                    </div>
-
-
-                                    <div>
-                                        <strong>14 Aug</strong>
-                                        <small>11:42 AM</small>
-                                    </div>
-
-
-                                    <div>
-                                        <strong>₹1,299</strong>
-                                        <small>UPI • Trusted Device</small>
-                                    </div>
-
-
-                                    <div class="risk-score low-score">
-                                        ✓ <strong>12</strong>/100
-                                    </div>
-
-                                </div>
-
-
-                                <!-- Transaction 3 -->
-
-                                <div
-                                    class="transaction-row"
-                                    data-risk="medium">
-
-                                    <div class="transaction-info">
-
-                                        <div class="transaction-icon purple">
-                                            ♟
-                                        </div>
-
-                                        <div>
-                                            <strong>
-                                                Priya Sharma
-                                            </strong>
-
-                                            <small>
-                                                TXN-48251
-                                            </small>
-                                        </div>
-
-                                    </div>
-
-
-                                    <div>
-                                        <strong>13 Aug</strong>
-                                        <small>08:35 PM</small>
-                                    </div>
-
-
-                                    <div>
-                                        <strong>₹5,600</strong>
-                                        <small>UPI • Android Phone</small>
-                                    </div>
-
-
-                                    <div class="risk-score medium-score">
-                                        ● <strong>58</strong>/100
-                                    </div>
-
-                                </div>
-
-
-                                <!-- Transaction 4 -->
-
-                                <div
-                                    class="transaction-row"
-                                    data-risk="low">
-
-                                    <div class="transaction-info">
-
-                                        <div class="transaction-icon green">
-                                            ♜
-                                        </div>
-
-                                        <div>
-                                            <strong>
-                                                Swiggy
-                                            </strong>
-
-                                            <small>
-                                                TXN-48220
-                                            </small>
-                                        </div>
-
-                                    </div>
-
-
-                                    <div>
-                                        <strong>13 Aug</strong>
-                                        <small>03:14 PM</small>
-                                    </div>
-
-
-                                    <div>
-                                        <strong>₹760</strong>
-                                        <small>UPI • Trusted Device</small>
-                                    </div>
-
-
-                                    <div class="risk-score low-score">
-                                        ✓ <strong>8</strong>/100
-                                    </div>
-
-                                </div>
-
-
-                                <!-- Transaction 5 -->
-
-                                <div
-                                    class="transaction-row"
-                                    data-risk="high">
-
-                                    <div class="transaction-info">
-
-                                        <div class="transaction-icon red">
-                                            ⊗
-                                        </div>
-
-                                        <div>
-                                            <strong>
-                                                Unknown Recipient
-                                            </strong>
-
-                                            <small>
-                                                TXN-48198
-                                            </small>
-                                        </div>
-
-                                    </div>
-
-
-                                    <div>
-                                        <strong>12 Aug</strong>
-                                        <small>01:05 AM</small>
-                                    </div>
-
-
-                                    <div>
-                                        <strong>₹18,500</strong>
-                                        <small>UPI • New Device</small>
-                                    </div>
-
-
-                                    <div class="risk-score high-score">
-                                        ⚠ <strong>79</strong>/100
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <!-- PAGINATION -->
-
-                            <div class="pagination">
-
-                                <span>
-                                    Showing 1-5 of 128
-                                </span>
-
-                                <div>
-
-                                    <button id="prev-btn">
-                                        ‹
-                                    </button>
-
-                                    <button id="next-btn">
-                                        ›
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ================= RISK PANEL ================= -->
-
-                    <aside class="risk-panel">
-
-                        <div class="risk-header">
-
-                            <span>
-                                ⚠ High Risk Detected
-                            </span>
-
-                            <strong>
-                                84<small>/100</small>
-                            </strong>
-
-                            <label>
-                                RISK SCORE
-                            </label>
-
-                        </div>
-
-
-                        <div class="risk-details">
-
-                            <div>
-                                <span>RECIPIENT</span>
-                                <strong>Rohit Kumar</strong>
-                            </div>
-
-                            <div>
-                                <span>AMOUNT</span>
-                                <strong>₹30,000</strong>
-                            </div>
-
-                            <div>
-                                <span>METHOD</span>
-                                <strong>UPI</strong>
-                            </div>
-
-                            <div>
-                                <span>DEVICE</span>
-                                <strong>Vivo V29 (New)</strong>
-                            </div>
-
-                        </div>
-
-
-                        <div class="location">
-
-                            <span>
-                                LOCATION CONTEXT
-                            </span>
-
-                            <div class="location-box">
-                                Bengaluru, KA, India
-                            </div>
-
-                        </div>
-
-
-                        <div class="risk-factors">
-
-                            <span>
-                                PRIMARY RISK FACTORS
-                            </span>
-
-
-                            <div class="factor red-factor">
-                                <span>▣ New Device IP</span>
-                                <strong>+24</strong>
-                            </div>
-
-
-                            <div class="factor yellow-factor">
-                                <span>▣ Unusual Amount</span>
-                                <strong>+21</strong>
-                            </div>
-
-
-                            <div class="factor orange-factor">
-                                <span>▣ Time of Day Anomaly</span>
-                                <strong>+18</strong>
-                            </div>
-
-
-                            <div class="factor green-factor">
-                                <span>▣ Biometric Match</span>
-                                <strong>+12</strong>
-                            </div>
-
-                        </div>
-
-
-                        <button
-                            class="full-analysis-btn"
-                            id="full-analysis-btn">
-
-                            ◉ View Full Risk Analysis
-
-                        </button>
-
-                    </aside>
+                <div class="save-row">
+
+                    <button id="saveChanges" class="save-btn">
+                        Save Changes
+                    </button>
 
                 </div>
 
             </section>
 
-        </main>
 
-    </div>
+            <!-- SECURITY -->
+
+            <section id="security" class="settings-panel">
+
+                <div class="panel-heading">
+                    <h3>Security Settings</h3>
+                    <p>
+                        Manage your account security.
+                    </p>
+                </div>
 
 
-    <script src="../js/transactions.js"></script>
+                <div class="setting-row">
+
+                    <div>
+                        <h4>Password</h4>
+                        <p>Change your FraudShield account password.</p>
+                    </div>
+
+                    <button class="outline-btn">
+                        Change Password
+                    </button>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h4>Two-Factor Authentication</h4>
+                        <p>
+                            Add an extra layer of security to your account.
+                        </p>
+                    </div>
+
+                    <label class="toggle">
+                        <input type="checkbox" checked>
+                        <span></span>
+                    </label>
+
+                </div>
+
+            </section>
+
+
+            <!-- NOTIFICATIONS -->
+
+            <section id="notifications" class="settings-panel">
+
+                <div class="panel-heading">
+                    <h3>Notification Settings</h3>
+                    <p>
+                        Control your FraudShield notifications.
+                    </p>
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h4>Security Alerts</h4>
+                        <p>
+                            Receive alerts for suspicious activity.
+                        </p>
+                    </div>
+
+                    <label class="toggle">
+                        <input type="checkbox" checked>
+                        <span></span>
+                    </label>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h4>Transaction Alerts</h4>
+                        <p>
+                            Receive important transaction notifications.
+                        </p>
+                    </div>
+
+                    <label class="toggle">
+                        <input type="checkbox" checked>
+                        <span></span>
+                    </label>
+
+                </div>
+
+            </section>
+
+
+            <!-- FRAUD PROTECTION -->
+
+            <section id="fraud" class="settings-panel">
+
+                <div class="panel-heading">
+                    <h3>Fraud Protection</h3>
+                    <p>
+                        Configure your FraudShield protection settings.
+                    </p>
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h4>Automatic Risk Detection</h4>
+                        <p>
+                            Automatically detect suspicious transactions.
+                        </p>
+                    </div>
+
+                    <label class="toggle">
+                        <input type="checkbox" checked>
+                        <span></span>
+                    </label>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h4>New Device Detection</h4>
+                        <p>
+                            Detect previously unseen devices.
+                        </p>
+                    </div>
+
+                    <label class="toggle">
+                        <input type="checkbox" checked>
+                        <span></span>
+                    </label>
+
+                </div>
+
+            </section>
+
+
+            <!-- APPEARANCE -->
+
+            <section id="appearance" class="settings-panel">
+
+                <div class="panel-heading">
+                    <h3>Appearance</h3>
+                    <p>
+                        Customize the FraudShield interface.
+                    </p>
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h4>Dark Mode</h4>
+                        <p>
+                            Keep the FraudShield dark interface enabled.
+                        </p>
+                    </div>
+
+                    <label class="toggle">
+                        <input type="checkbox" checked>
+                        <span></span>
+                    </label>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <script src="../js/settings.js"></script>
 
 </body>
-
 </html>
